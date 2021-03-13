@@ -1,0 +1,27 @@
+<form [formGroup]="myForm" method="post" action="">
+    <div class="form">
+        <div class="form-group">
+          <input type="email" class="form-control"  formControlName="email" placeholder="Enter email">
+          <p *ngIf="myForm.controls.email.errors" class="alert ">
+                  
+            <span *ngIf="myForm.controls.email.errors.pattern" class="alert-danger">
+            invalid email
+            </span>
+            <span *ngIf="myForm.get('email').errors?.serverError" class="alert-danger">
+                {{myForm.get('email').errors?.serverError}}
+                 </span>
+            </p>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" formControlName="password" placeholder="Password">
+          <p *ngIf="myForm.controls.password.errors" class="alert ">
+                  
+            <span *ngIf="myForm.controls.password.errors.minlength" class="alert-danger">
+            length must be more than 6
+            </span>
+            </p>
+        </div>
+        
+    </div>
+    <button type="button" class="btn btn-dark"(click)="login()" [disabled]="!myForm.valid">Login</button>
+  </form>

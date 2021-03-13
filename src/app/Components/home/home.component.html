@@ -1,0 +1,142 @@
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+  
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="todolist not-done">
+             <h1>Todos</h1>
+             <form [formGroup]="myForm" method="post" action="">
+                <div class="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="title" placeholder="Title">
+                        <p *ngIf="myForm.controls.title.errors" class="alert ">
+                            <span *ngIf="myForm.controls.title.errors.minlength" class="alert-danger">
+                            length must be more than 5
+                            </span>
+            
+                            </p>
+                      </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control"  formControlName="body" placeholder="Body">
+                      <p *ngIf="myForm.controls.body.errors" class="alert ">
+                              
+                        <span *ngIf="myForm.controls.body.errors.minlength" class="alert-danger">
+                            length must be more than 10
+                            </span>
+                        </p>
+                    </div>
+                                        
+                </div>
+                <button type="button" class="btn btn-dark"(click)="AddTodo()" [disabled]="!myForm.valid">ADD</button>
+              </form>
+            
+                             
+                    <hr>
+                    <ul id="sortable" class="list-unstyled"*ngFor="let todo of Todos">
+                      
+                       <li>
+                         Title :{{todo.title}} <br>
+                        Body:{{todo.body}} <br>
+                        Status:{{todo.status}}<br>
+                        Createing Time :{{todo.createdAt}} <br>
+                        Updating Time:{{todo.updatedAt}}
+                        <button class="btn btn-default btn-sm tools" (click)="DeleteTodo(todo)" >
+                          <i class="fas fa-window-close"></i></button>
+                          <button class="btn btn-default btn-sm tools" (click)="open(content)" >
+                            <i class="fas fa-edit"></i></button>
+                             
+                            
+                        </li>
+                            <hr>
+                    
+                            <ng-template #content let-modal>
+                              <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Todo Update</h4>
+                                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form [formGroup]="editForm" >
+                                  <div class="form-group row">
+                                   <label for="Title" class="col-sm-4 col-form-label">Title</label>
+                                   <div class="col-sm-8">
+                                    <input type="text" class="form-control" formControlName="title" id="Title">
+                                    <p *ngIf="editForm.controls.title.errors" class="alert ">
+                                           
+                             
+                                     <span *ngIf="editForm.controls.title.errors.minlength" class="alert-danger">
+                                     length must be more than 5
+                                     </span>
+                                 </p>
+                                   </div>
+                                  </div>
+                                  <div class="form-group row">
+                                   <label for="Body" class="col-sm-4 col-form-label">Body</label>
+                                   <div class="col-sm-8">
+                                    <input type="text" class="form-control" formControlName="body" id="Body">
+                                    <p *ngIf="editForm.controls.body.errors" class="alert">
+                                            
+                                             
+                                     <span *ngIf="editForm.controls.body.errors.minlength" class="alert-danger">
+                                         length must be more than 10
+                                       </span>
+                                      
+                                 </p>
+                                   </div>
+                                  </div>
+                                  <div class="form-group row">
+                                   <label for="Status" class="col-sm-4 col-form-label">Status</label>
+                                   <div class="col-sm-8">
+                                     <div class="form-check">
+                                         <input class="form-check-input" type="radio" name="flexRadioDefault" (change)="onCheck($event)" value="Pending" id="flexRadioDefault1">
+                                         <label class="form-check-label" for="flexRadioDefault1">
+                                             Pending
+                                         </label>
+                                       </div>
+                                       <div class="form-check">
+                                         <input class="form-check-input" type="radio" name="flexRadioDefault" (change)="onCheck($event)" value="In Progress" id="flexRadioDefault2" >
+                                         <label class="form-check-label" for="flexRadioDefault2">
+                                             In Progress
+                                         </label>
+                                       </div>
+                                       <div class="form-check">
+                                         <input class="form-check-input" type="radio" name="flexRadioDefault" (change)="onCheck($event)" value="Done" id="flexRadioDefault3" >
+                                         <label class="form-check-label" for="flexRadioDefault3">
+                                             Done
+                                         </label>
+                                       </div>
+                                       <div class="form-check">
+                                         <input class="form-check-input" type="radio" name="flexRadioDefault" (change)=onCheck($event) value="Close" id="flexRadioDefault4">
+                                         <label class="form-check-label" for="flexRadioDefault4">
+                                            Close
+                                         </label>
+                                       </div>
+                                   </div>
+                                  </div>
+                                  
+                                  <div class="modal-footer">
+                                   <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+                                   <button type="button" class="btn btn-primary" (click)="onSubmit(todo)" [disabled]="!editForm.valid">Save changes</button>
+                                  </div>
+                                 </form>
+                              </div>
+                              
+                            </ng-template>
+                            
+                </ul>
+               
+            </div>
+        </div>
+       
+    </div>
+</div>

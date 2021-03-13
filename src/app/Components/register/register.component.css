@@ -1,0 +1,40 @@
+
+input{
+    border: 1px solid #909091;
+    border-radius: 20px;
+    width:50%;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 5px 5px 3px  #909091;
+    padding: 10px;
+   
+   
+}
+.form{
+      width: 90%;
+      margin: 0 auto;
+      margin-left: 200px;
+    
+}
+form{
+    width: 100%;
+    text-align: center;
+}
+input:focus ,button:focus{
+    outline: none;
+}
+
+.btn{
+    width:15%;
+    box-shadow: 5px 5px 3px  #909091;   
+   
+}
+
+button:hover,input:hover
+{
+    opacity: 0.8;
+}
+
+p{
+    text-align: start;
+}
