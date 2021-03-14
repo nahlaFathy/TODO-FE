@@ -10,13 +10,16 @@ import{HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  loadTodos=[];
+  
   constructor(private http:HttpClient){}
   ngOnInit() { 
     
     
   }
- 
+   logout()
+   {
+     localStorage.removeItem("Token");
+   }
   }
   
 
