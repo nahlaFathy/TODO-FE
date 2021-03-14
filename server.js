@@ -4,9 +4,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.use(express.static(__dirname + '/TODO-FE'));
+app.use(express.static(__dirname + '/src/TODO-FE'));
   app.get('/*', function(req,res) {
     
-    res.sendFile(path.join(__dirname+'/TODO-FE/index.html'));
+    res.sendFile(path.join(__dirname+'/src/index.html'));
     });
 app.listen(process.env.PORT||3000);
