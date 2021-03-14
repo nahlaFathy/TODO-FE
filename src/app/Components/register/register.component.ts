@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators} from '@angular/forms';
 import{HttpClient,HttpHeaders} from '@angular/common/http';
 import {  Router } from '@angular/router'
 import { environment } from 'src/environments/environment';
-import {UserService} from '../services/user.service'
+
 
 @Component({
   selector: 'app-register',
@@ -12,7 +12,7 @@ import {UserService} from '../services/user.service'
 })
 export class RegisterComponent  {
 
-  constructor(private http:HttpClient,private router: Router,private userService: UserService ){}
+  constructor(private http:HttpClient,private router: Router ){}
   showSucessMessage: boolean;
   serverErrorMessages: string;
    headers= new HttpHeaders()
@@ -47,7 +47,7 @@ export class RegisterComponent  {
    
     if(this.myForm.valid){
      
-        this.http.post(process.env.api||"http://localhost:3000/api"+'/users/register',this.myForm.value)
+        this.http.post(process.env.API||"http://localhost:3000/api"+'/users/register',this.myForm.value)
     .subscribe(res=>{
      
       console.log(res)
