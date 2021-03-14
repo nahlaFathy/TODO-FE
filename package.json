@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "cd ANGULAR_APP_FOLDER && npm install",
-    "postinstall": "ng build -prod"
+    "heroku-postbuild": "ng build --prod && npm install"
+    
   },
   "private": true,
   "dependencies": {
