@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "cd ANGULAR_APP_FOLDER && npm install",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build -prod"
   },
   "private": true,
   "dependencies": {
