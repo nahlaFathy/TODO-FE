@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
   public getUserTodos(){
    
    
-    this.http.get<any>(process.env.API||"http://localhost:3000/api"+'/todos'||environment.API, {
+    this.http.get<any>(process.env.API+'/todos'||"http://localhost:3000/api"+'/todos'||environment.API, {
       headers: new HttpHeaders()
         .set('x-user-token',this.mytoken)
        , observe: 'response'
@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
 public AddTodo(){
   if(this.myForm.valid){
      
-    this.http.post(process.env.API||"http://localhost:3000/api"||environment.API+'/todos',this.myForm.value,{
+    this.http.post(process.env.API+'/todos'||"http://localhost:3000/api"||environment.API+'/todos',this.myForm.value,{
       responseType:"text",
       headers: new HttpHeaders()
         .set('x-user-token',this.mytoken)
@@ -95,7 +95,7 @@ err=>{
 }
 public DeleteTodo(todo){
   console.log(todo)
-  this.http.delete(process.env.API||"http://localhost:3000/api"||environment.API+`/todos/${todo._id}`,{
+  this.http.delete(process.env.API+`/todos/${todo._id}`||"http://localhost:3000/api"+`/todos/${todo._id}`,{
     headers: new HttpHeaders()
       .set('x-user-token',this.mytoken)
      , observe: 'response'
