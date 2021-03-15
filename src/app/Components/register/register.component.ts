@@ -47,7 +47,7 @@ export class RegisterComponent  {
    
     if(this.myForm.valid){
      
-        this.http.post(process.env.API||"http://localhost:3000/api"+'/users/register',this.myForm.value)
+        this.http.post(process.env.API||"http://localhost:3000/api"+'/users/register'||environment.API,this.myForm.value)
     .subscribe(res=>{
      
       console.log(res)
