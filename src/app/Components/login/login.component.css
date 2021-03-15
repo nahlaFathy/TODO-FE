@@ -1,24 +1,46 @@
-
+body {
+    position: relative;
+}
 input{
     border: 1px solid #909091;
     border-radius: 20px;
-    width:50%;
-    margin: 15px;
+    width:30%;
+    margin: 10px;
     text-align: center;
     box-shadow: 5px 5px 3px  #909091;
     padding: 10px;
    
    
 }
+.mydiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%,-50%);
+     width: 100%;
+     margin-top: 150px;
+}
 .form{
-      width: 90%;
-      margin: 0 auto;
-      margin-left: 200px;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 form{
     width: 100%;
     text-align: center;
+    align-self: center;
+    
+
 }
 input:focus ,button:focus{
     outline: none;

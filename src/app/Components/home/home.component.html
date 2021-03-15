@@ -9,9 +9,7 @@
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
+<div class="mydiv">
             <div class="todolist not-done">
              <h1>Todos</h1>
              <form [formGroup]="myForm" method="post" action="">
@@ -36,7 +34,7 @@
                     </div>
                                         
                 </div>
-                <button type="button" class="btn btn-dark"(click)="AddTodo()" [disabled]="!myForm.valid">ADD</button>
+                <button type="button" class="btn btn-dark add"(click)="AddTodo()" [disabled]="!myForm.valid">ADD</button>
               </form>
             
                              
@@ -56,6 +54,7 @@
                              
                             
                         </li>
+                        <br>
                             <hr>
                     
                             <ng-template #content let-modal>
@@ -136,7 +135,4 @@
                 </ul>
                
             </div>
-        </div>
-       
-    </div>
-</div>
+          </div>

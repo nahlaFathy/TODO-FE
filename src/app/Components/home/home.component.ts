@@ -141,7 +141,8 @@ public DeleteTodo(todo){
         this.Todos[index].title=this.editForm.value.title;
         this.Todos[index].body=this.editForm.value.body;
         this.Todos[index].status=this.editForm.value.status;
-        this.Todos[index].updatedAt=Date.now;
+        this.Todos[index].updatedAt=new Date(Date.now()).toISOString();;
+        console.log(Date.now())
       } 
       this.editForm.reset();
       this.modalService.dismissAll();
