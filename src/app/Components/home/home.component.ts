@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
   public getUserTodos(){
    
    
-    this.http.get<any>(process.env.API||"http://localhost:3000/api"||environment.API+'/todos', {
+    this.http.get<any>(process.env.API||"http://localhost:3000/api"+'/todos'||environment.API, {
       headers: new HttpHeaders()
         .set('x-user-token',this.mytoken)
        , observe: 'response'

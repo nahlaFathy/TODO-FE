@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API: 'http://localhost:3000/api',
+  API: 'https://todoiti.herokuapp.com/api',
   port:3000
 };
 
