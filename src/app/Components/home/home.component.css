@@ -1,7 +1,4 @@
-body{
-    background-color:#EEEEEE;
-   
-}
+
 input[type="text"],.add{
     border: 1px solid #909091;
     margin: 10px;
@@ -12,6 +9,8 @@ input[type="text"],.add{
 }
 
 .todolist{
+    border: 1px solid #909091;
+    box-shadow: 5px 5px 3px  #5c5b5b;
     background-color:#FFF;
     padding:30px;
     margin-top:30px;
