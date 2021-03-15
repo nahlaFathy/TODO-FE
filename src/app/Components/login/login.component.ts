@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
     onlogin(postData){
-      this.http.post(process.env.API||"http://localhost:3000/api"+'/users/login',postData,{responseType:"text"})
+      this.http.post(process.env.API||"http://localhost:3000/api"+'/users/login'||environment.API,postData,{responseType:"text"})
       .subscribe(res=>{
         console.log(res)
         localStorage.setItem("Token",res);
